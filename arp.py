@@ -13,6 +13,8 @@ def ARP_exists(host):
     addlen = ctypes.c_ulong(ctypes.sizeof(buffer))
 
     if SendARP(inetaddr, 0, ctypes.byref(buffer), ctypes.byref(addlen)) == 0:
-        print(host)
-        return 1
-    return 0
+        return True
+    return False
+
+def ARP_host(host):
+    if ARP_exists(host): print (host)

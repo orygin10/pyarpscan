@@ -14,7 +14,7 @@ if __name__ == '__main__':
     pool = ThreadPool(256)
 
     # Ouvre une requête ARP dans chaque thread
-    results = pool.map(ARP_exists, hosts)
+    results = pool.map(ARP_host, hosts)
 
     pool.close()
     pool.join()
