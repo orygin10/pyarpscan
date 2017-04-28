@@ -5,7 +5,9 @@ Use [Microsoft SendARP function](https://msdn.microsoft.com/en-us/library/window
 
 ### Notice :
 Scanning a network is illegal in most organizations, use it at your own risk.
+
 Furthermore, networks equipment like routers may not let ARP request go through the network.
+
 You may even get blocked by some computer antivirus softwares.
 
 ### Prerequisites
