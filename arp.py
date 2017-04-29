@@ -23,7 +23,7 @@ def arp_exists(host):
 
     DestIP is decimal value of inverted IP address, for instance :
     10.0.0.103 => 103.0.0.10 => 1728053258
-    Microsoft recommands wsock32.inet_addr(), which I can't use with Python 2.
+    Microsoft recommands wsock32.inet_addr(), which I can't use with Python 3.
     """
 
     SendARP = ctypes.windll.Iphlpapi.SendARP
