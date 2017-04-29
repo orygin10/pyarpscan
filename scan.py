@@ -10,20 +10,22 @@ def main():
     Make hosts list from IPv4Network() object
     Open an ARP request in 256 threads towards 256 hosts at a time.
     """
-    if __name__ == '__main__':
-        ip_address = ask_for_ip()
-        netmask = ask_for_netmask()
-        network = calc_network(ip_address, netmask)
 
-        hosts = list(map(str, network.hosts()))
+    ip_address = ask_for_ip()
+    netmask = ask_for_netmask()
+    network = calc_network(ip_address, netmask)
 
-        # Fait un pool de workers
-        pool = ThreadPool(256)
+    hosts = list(map(str, network.hosts()))
 
-        # Ouvre une requête ARP dans chaque thread
-        pool.map(arp_host, hosts)
-        input("Fin.")
+    # Fait un pool de workers
+    pool = ThreadPool(256)
 
-        pool.close()
-        pool.join()
-main()
+    # Ouvre une requête ARP dans chaque thread
+    pool.map(arp_host, hosts)
+    input("Fin.")
+
+    pool.close()
+    pool.join()
+
+if __name__ == '__main__':
+    main()
