@@ -15,10 +15,10 @@ def main():
     netmask = ask_for_netmask()
     network = calc_network(ip_address, netmask)
 
-    hosts = list(map(str, network.hosts()))
+    hosts = [str(host) for host in network.hosts()]
 
     # Fait un pool de workers
-    pool = ThreadPool(256)
+    pool = ThreadPool(254)
 
     # Ouvre une requête ARP dans chaque thread
     pool.map(arp_host, hosts)
